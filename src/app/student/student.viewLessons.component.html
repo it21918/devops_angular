@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="container-fluid p-0">
+		<h1 class="h3 mb-3">My request {{request?.id}}</h1>
+		<div class="row">
+			<div class="col-xl-8">
+				<div class="card">
+					<div class="card-header pb-0">
+						<div class="card-actions float-right">
+							<div class="dropdown show">
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<table class="table table-striped" style="width:100%">
+							<thead>
+								<tr>
+									<th>#Lessons</th>
+									<th>Name</th>
+									<th>Grade</th>
+									<th>Semester</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let rl of requestsLessons">
+									<td></td>
+									<td>{{rl?.name}}</td>
+									<td>{{rl?.grade}}</td>
+									<td>{{rl?.semester}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-xl-4">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-actions float-right">
+							<div class="dropdown show">
+								<a href="#" data-toggle="dropdown" data-display="static">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+								</a>
+
+								<div class="dropdown-menu dropdown-menu-right">
+									<a style="font-face: 'Comic Sans MS'; font-size: larger; color: rgb(244, 248, 248); background-color: #22221f; border: 3pt ridge lightgrey" 
+									href="{{'http://localhost:8080/student/download/' + requestsLetter.id }}">Download</a>								
+								</div>
+							</div>
+						</div>
+						<h5 class="card-title mb-0">Request receiver: {{request?.receiver?.username}}</h5>
+					</div>
+					<div class="card-body">
+						<div class="row g-0">
+							<div class="col-sm-3 col-xl-12 col-xxl-3 text-center">
+								<img src="{{request.receiver.imageUrl}}" width="64" height="64" class="rounded-circle mt-2" alt="Angelica Ramos">
+							</div>
+							<div class="col-sm-9 col-xl-12 col-xxl-9">
+								<strong>Response: </strong>
+									<p>{{requestsLetter?.text}}</p>
+								   <div *ngIf="requestsLetter?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+									<div class="alert alert-info" role="alert" style="background-color:rgb(208, 209, 209)">
+									  <p>NO RESPONSE FOUND.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

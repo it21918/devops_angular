@@ -1,0 +1,83 @@
+<p></p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" style="color:white;">Teacher Manager</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+         <li class="nav-item active">
+            <a class="nav-link" (click)="onOpenModal(null, 'add')">Send recommendation letter <span class="sr-only">(current)</span></a>
+         </li>
+      </ul>
+	  <!--
+      <form class="form-inline my-2 my-lg-0">
+         <input type="search" (ngModelChange)="searchRequests(key.value)" #key="ngModel" ngModel name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search users..." required>
+      </form>
+	-->
+   </div>
+
+ </nav>
+ <div class="container" id="main-container">
+ <div class="row">
+   <div *ngFor="let r of requests" class="col-md-6 col-xl-3">
+      <div class="card m-b-30">
+         <div class="card-body row">
+            <div class="col-6">
+               <a href=""><img src="{{r?.receiver.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
+            </div>
+            <div class="col-6 card-title align-self-center mb-0">
+               <h5>Request id: {{r?.id}} </h5>
+               <p class="m-0">Receiver: {{r?.receiver.username}}</p>
+			   <p class="m-0">Purpose: {{r?.purpose}}</p>
+			   <p class="m-0">Status: {{r?.status}}</p>
+               <p class="m-0">Timestamp: {{r?.timestamp}}</p>
+            </div>
+         </div>
+         <ul class="list-group list-group-flush">
+			<button style="font-face: 'Comic Sans MS'; font-size: larger; color: rgb(244, 248, 248); background-color: #22221f; border: 3pt ridge lightgrey" 
+			(click)="gotoPage(r?.id)">View more</button>
+		</ul>
+      </div>
+   </div>
+ </div>
+
+
+
+	<!-- Add request Modal -->
+	<div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			 <div class="modal-header">
+				<h5 class="modal-title" id="addEmployeeModalLabel">Send letter</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			 </div>
+			 <div class="modal-body">
+				<form #addForm="ngForm" (ngSubmit)="onAddEmloyee(addForm)">
+                    <div class="form-group">
+                        <label for="request">To:</label>
+                        <select ngModel name="requests" class="form-control"  class="form-control">
+                           <option *ngFor="let r of requests" [ngValue]="r">{{r.id}}</option>
+                          </select>
+                      </div>
+                    <div class="form-group">
+                        <label class="col-sm-12" for="inputBody"><span class="glyphicon glyphicon-list"></span>Message</label>
+                        <div class="col-sm-12"><textarea ngModel name="text" class="form-control" id="inputBody" rows="8"></textarea></div>
+                      </div>
+				<div class="modal-footer">
+				   <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				   <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Submit</button>
+				</div>
+				</form>
+			 </div>
+		  </div>
+		</div>
+		</div>
+
+
+      <div *ngIf="requests.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+         <div class="alert alert-info" role="alert" style="background-color:rgb(208, 209, 209)">
+           <p>YOU DON'T HAVE ANY REQUESTS. </p></div>
+       </div>

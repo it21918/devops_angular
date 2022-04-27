@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="container-fluid p-0">
+		<div class="row">
+			<div class="col-xl-8">
+				<div class="card">
+					<div class="card-header pb-0">
+						<div class="card-actions float-right">
+							<div class="dropdown show">
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<table class="table table-striped" style="width:100%">
+							<thead>
+								<tr>
+									<th>#Lessons</th>
+									<th>Name</th>
+									<th>Grade</th>
+									<th>Semester</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let rl of requestsLessons">
+									<td></td>
+									<td>{{rl?.name}}</td>
+									<td>{{rl?.grade}}</td>
+									<td>{{rl?.semester}}</td>
+								</tr>
+							</tbody>
+						</table>
+						<small>The request will automatically get accepted when you send a letter of recommandation to request's id number.</small> 
+						<button style="font-face: 'Comic Sans MS'; font-size: larger; color: rgb(244, 248, 248); background-color: #22221f; border: 3pt ridge lightgrey" 
+						(click)="gotoRejection(rl?.id)">Reject request</button></div>
+				</div>
+			</div>
+
+			<div class="col-xl-4">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-actions float-right">
+							<div class="dropdown show">
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="row g-0">
+							<div class="col-sm-9 col-xl-12 col-xxl-9">
+								<strong>Response: </strong>
+								<p>{{requestsLetter?.text}}</p>
+								<div *ngIf="requestsLetter?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+									<div class="alert alert-info" role="alert" style="background-color:rgb(208, 209, 209)">
+									  <p>YOU HAVEN'T WRITTEN A RESPONSE.</p></div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
