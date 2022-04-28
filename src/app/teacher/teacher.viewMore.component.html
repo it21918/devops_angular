@@ -28,9 +28,9 @@
 								</tr>
 							</tbody>
 						</table>
-						<small>The request will automatically get accepted when you send a letter of recommandation to request's id number.</small> 
+						<small>The request will automatically get accepted when you send a letter of recommandation to request's id number {{requestsLessons[0]?.requests.id}}</small>
 						<button style="font-face: 'Comic Sans MS'; font-size: larger; color: rgb(244, 248, 248); background-color: #22221f; border: 3pt ridge lightgrey" 
-						(click)="gotoRejection(rl?.id)">Reject request</button></div>
+						(click)="gotoRejection(requestsLessons[0]?.requests.id)">Reject request</button></div>
 				</div>
 			</div>
 

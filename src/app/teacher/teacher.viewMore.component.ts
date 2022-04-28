@@ -69,7 +69,14 @@ export class TeacherViewLessonsComponent implements OnInit {
       }
 
       public gotoRejection(id : any) {
-        alert("oh");
+        this.studentService.rejectRequest(id).subscribe(
+          data => {
+            this.request = data;
+          },
+          err => {
+            this.request = JSON.parse(err.error).message;
+          }
+        );
       }
 
 
