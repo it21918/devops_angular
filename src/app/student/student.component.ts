@@ -89,6 +89,7 @@ export class StudentComponent implements OnInit {
   }
 
   public onAddEmloyee(addForm: NgForm): void {
+      alert(JSON.stringify(addForm.value))
       document.getElementById('add-employee-form').click();
       this.studentService.addRequests(addForm.value).subscribe(
           (response: any) => {
@@ -97,8 +98,17 @@ export class StudentComponent implements OnInit {
                   (response: any) => {
                   }
               )
+              this.studentService.addLesson2(addForm.value).subscribe(
+                (response: any) => {
+                }
+            )
+            this.studentService.addLesson3(addForm.value).subscribe(
+                (response: any) => {
+                }
+            )
               addForm.reset();
           }
+        
       );
   }
 

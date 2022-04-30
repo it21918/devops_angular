@@ -41,6 +41,28 @@ export class StudentService {
       }, httpOptions);
   }
 
+  addLesson2(lesson: any): Observable < any > {
+    return this.http.post < any > (`${this.apiServerUrl}/student/saveLesson`, {
+        grade: lesson.grade2,
+        name: lesson.name2,
+        semester: lesson.semester2,
+        requests: lesson,
+        purpose: lesson.purpose,
+        receiver: lesson.receiver
+    }, httpOptions);
+}
+
+addLesson3(lesson: any): Observable < any > {
+  return this.http.post < any > (`${this.apiServerUrl}/student/saveLesson`, {
+      grade: lesson.grade3,
+      name: lesson.name3,
+      semester: lesson.semester3,
+      requests: lesson,
+      purpose: lesson.purpose,
+      receiver: lesson.receiver
+  }, httpOptions);
+}
+
   getStudentRequest(requestId: string): Observable < any[] > {
       return this.http.get < any[] > (`${this.apiServerUrl}/student/getStudentRequestsById/` + requestId);
   }

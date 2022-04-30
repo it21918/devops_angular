@@ -8,9 +8,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { BoardUserComponent } from './board-user/board-user.component';
-import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { ProfileComponent } from './profile/profile.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { UserComponent } from './admin/admin.component'
@@ -26,9 +23,6 @@ import { TeacherViewLessonsComponent } from './teacher/teacher.viewMore.componen
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    BoardAdminComponent,
-    BoardUserComponent,
-    BoardModeratorComponent,
     ProfileComponent,
     StudentComponent,
     UserComponent,

@@ -58,18 +58,63 @@
 						<option *ngFor="let t of teachers" [ngValue]="t">{{t.username}}</option>
 					  </select>
 				 </div>
-				<div class="form-group">
-					<label for="purpose">Lesson1 name</label>
-					<input type="text" ngModel name="name" class="form-control" id="purpose" placeholder="Work, school..." required>
-                </div>
-				<div class="form-group">
-					<label for="grade">Lesson1 grade</label>
-					<input type="number" ngModel name="grade" class="form-control" id="grade" placeholder="1, 20..." required>
-                </div>
-				<div class="form-group">
-					<label for="semester">Lesson1 semester</label>
-					<input type="number" ngModel name="semester" class="form-control" id="semester" placeholder="1, 5..." required>
-                </div>
+				 <table>
+					 <tr>
+						<td>
+							<div class="form-group">
+								<label for="name2">Lesson's name</label>
+								<input type="text" ngModel name="name" class="form-control" id="name" placeholder="math" required>
+							</div>
+						 </td>
+						<td>
+							<div class="form-group">
+								<label for="grade">Lesson's grade</label>
+								<input type="number" ngModel name="grade" class="form-control" id="grade" placeholder="1, 20..." required>
+							</div>
+						 </td>
+						 <td>
+							<div class="form-group">
+								<label for="semester">Lesson's semester</label>
+								<input type="number" ngModel name="semester" class="form-control" id="semester" placeholder="1, 5..." required>
+							</div>
+						 </td>
+					 </tr>
+					 <tr>
+						<td>
+						<div class="form-group">
+							<input type="text" ngModel name="name2" class="form-control" id="name2" placeholder="biology" >
+						</div>
+					 </td>
+					 <td>
+						<div class="form-group">
+							<input type="number" ngModel name="grade2" class="form-control" id="grade2" placeholder="1, 20..." >
+						</div>
+					 </td>
+					 <td>
+						<div class="form-group">
+							<input type="number" ngModel name="semester2" class="form-control" id="semester2" placeholder="1, 5..." >
+						</div>
+					 </td>
+					 </tr>
+					 <tr>
+						<td>
+						<div class="form-group">
+							<input type="text" ngModel name="name3" class="form-control" id="name3" placeholder="logistics" >
+						</div>
+					 </td>
+					 <td>
+						<div class="form-group">
+							<input type="number" ngModel name="grade3" class="form-control" id="grade3" placeholder="1, 20..." >
+						</div>
+					 </td>
+					 <td>
+						<div class="form-group">
+							<input type="number" ngModel name="semester3" class="form-control" id="semester3" placeholder="1, 5..." >
+						</div>
+					 </td>
+					 </tr>
+
+				 </table>
 				<div class="modal-footer">
 				   <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
 				   <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
