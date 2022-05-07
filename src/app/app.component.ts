@@ -10,7 +10,7 @@ import { UserService } from './admin/admin.service'
 export class AppComponent implements OnInit {
   private roles: string[];
   isLoggedIn = false;
-  showAdminBoard = false;
+  studentPage = false;
   showModeratorBoard = false;
   
   username: string;
@@ -23,7 +23,9 @@ export class AppComponent implements OnInit {
 
     if (this.isLoggedIn) {
       this.getUser();
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      alert(JSON.stringify(this.user));
+      this.studentPage = this.roles.includes('ROLE_STUDENT');
+      
     }
   }
 
@@ -31,8 +33,6 @@ export class AppComponent implements OnInit {
     this.userService.getUserByEmail(this.tokenStorageService.getUser().email).subscribe(
       data => {
         this.user = data;
-        this.roles = this.user.roles;
-        this.username = this.user.username;
       },
       err => {
         this.user = JSON.parse(err.error).message;

@@ -1,15 +1,15 @@
 <div id="app">
   <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">bezKoder</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
-        <a href="admin/adminPage" class="nav-link" *ngIf="isLoggedIn" routerLink="adminPage">A</a>
+        <a href="admin/adminPage" class="nav-link" *ngIf="isLoggedIn" routerLink="adminPage" 
+        > Admin Board</a>
       </li>
       <li class="nav-item">
-        <a href="student/studentPage" class="nav-link" *ngIf="isLoggedIn" routerLink="studentPage">S</a>
+        <a href="student/studentPage" class="nav-link" *ngIf="isLoggedIn" routerLink="studentPage">Student Board</a>
       </li>
       <li class="nav-item">
-        <a href="teacher/teacherPage" class="nav-link" *ngIf="isLoggedIn" routerLink="teacherPage">T</a>
+        <a href="teacher/teacherPage" class="nav-link" *ngIf="isLoggedIn" routerLink="teacherPage">Teacher Board</a>
       </li>
     </ul>
 

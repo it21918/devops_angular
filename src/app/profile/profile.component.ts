@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit {
       this.UserService.getUserByEmail(this.currentUser.email).subscribe(
         (response: any[]) => {
           this.moreDetails = response;
+  
         },
         (error: HttpErrorResponse) => {
           alert(error.message);
