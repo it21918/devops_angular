@@ -48,7 +48,6 @@ export class TeacherViewLessonsComponent implements OnInit {
       public getLessonsByRequestId(): void {
         this.studentService.getLessonsByRequestId(this.href).subscribe(
             data => {
-              console.log(JSON.stringify(data));
               this.requestsLessons = data;
             },
             err => {
@@ -61,6 +60,8 @@ export class TeacherViewLessonsComponent implements OnInit {
         this.studentService.getLetterByRequestId(this.href).subscribe(
             data => {
               this.requestsLetter = data;
+              alert(JSON.stringify(data));
+
             },
             err => {
               this.requestsLetter = JSON.parse(err.error).message;

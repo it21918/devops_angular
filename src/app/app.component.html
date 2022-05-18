@@ -2,14 +2,13 @@
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
-        <a href="admin/adminPage" class="nav-link" *ngIf="isLoggedIn" routerLink="adminPage" 
-        > Admin Board</a>
+        <a href="admin/adminPage" class="nav-link"  *ngIf="admin && isLoggedIn" routerLink="adminPage" > Admin Board</a>
       </li>
       <li class="nav-item">
-        <a href="student/studentPage" class="nav-link" *ngIf="isLoggedIn" routerLink="studentPage">Student Board</a>
+        <a href="student/studentPage" class="nav-link" *ngIf="student && isLoggedIn" routerLink="studentPage">Student Board</a>
       </li>
       <li class="nav-item">
-        <a href="teacher/teacherPage" class="nav-link" *ngIf="isLoggedIn" routerLink="teacherPage">Teacher Board</a>
+        <a href="teacher/teacherPage" class="nav-link" *ngIf="teacher && isLoggedIn" routerLink="teacherPage">Teacher Board</a>
       </li>
     </ul>
 

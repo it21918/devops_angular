@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
 import { UserService } from './admin/admin.service'
+import { analyzeFileForInjectables } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,10 @@ export class AppComponent implements OnInit {
   isLoggedIn = false;
   studentPage = false;
   showModeratorBoard = false;
+
+  student = false;
+  teacher = false;
+  admin = false;
   
   username: string;
   user: any;
@@ -21,26 +26,20 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
-    if (this.isLoggedIn) {
-      this.getUser();
-      alert(JSON.stringify(this.user));
-      this.studentPage = this.roles.includes('ROLE_STUDENT');
-      
-    }
+    if(this.isLoggedIn) {
+      if(this.tokenStorageService.getUser().roles == 'ROLE_STUDENT') {
+        this.student = true;
+      }
+      if(this.tokenStorageService.getUser().roles == 'ROLE_TEACHER') {
+        this.teacher = true;
+      }
+      if(this.tokenStorageService.getUser().roles == 'ROLE_ADMIN') {
+        this.admin = true;
+      }
   }
 
-  getUser() {
-    this.userService.getUserByEmail(this.tokenStorageService.getUser().email).subscribe(
-      data => {
-        this.user = data;
-      },
-      err => {
-        this.user = JSON.parse(err.error).message;
-      }
-    );
 }
   
-
   logout() {
     this.tokenStorageService.signOut();
     window.location.reload();
