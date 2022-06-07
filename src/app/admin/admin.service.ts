@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({providedIn: 'root'})
 export class UserService {
 
-  private apiServerUrl = 'http://localhost:8080/admin/';
+  private apiServerUrl = 'http://localhost:8082/admin/';
 
   constructor(private http: HttpClient){}
 
