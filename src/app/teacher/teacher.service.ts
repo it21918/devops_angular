@@ -10,7 +10,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TeacherService {
-  private apiServerUrl = 'http://localhost:8082';
+  private apiServerUrl = 'http://localhost:9090';
 
   constructor(private http: HttpClient) { }
 
