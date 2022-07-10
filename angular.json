@@ -1,12 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "39d04201-85ef-4646-8903-0fe29ad8d095"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular8JwtAuth": {
+    "employeemanagerapp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,12 +13,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Angular8JwtAuth",
+            "outputPath": "dist/employeemanagerapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -44,7 +41,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -66,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Angular8JwtAuth:build"
+            "browserTarget": "employeemanagerapp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Angular8JwtAuth:build:production"
+              "browserTarget": "employeemanagerapp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular8JwtAuth:build"
+            "browserTarget": "employeemanagerapp:build"
           }
         },
         "test": {
@@ -114,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Angular8JwtAuth:serve"
+            "devServerTarget": "employeemanagerapp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Angular8JwtAuth:serve:production"
+              "devServerTarget": "employeemanagerapp:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "Angular8JwtAuth"
+  "defaultProject": "employeemanagerapp"
 }
