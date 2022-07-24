@@ -11,7 +11,6 @@ pipeline {
             }
         }
 
-
         stage('deploym to vm 1') {
             steps{
                 sshagent (credentials: ['ssh-deployment-1']) {
@@ -24,3 +23,4 @@ pipeline {
 
         }
     }
+}
